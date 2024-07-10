@@ -2,11 +2,14 @@ import eventListeners from './eventListeners';
 
 class Renderer {
   renderProjects(app) {
+    const container = document.querySelector('#content');
+    container.textContent = '';
+
     for (const project of app.projects) {
       const projectComponent = this.createProjectComponent(project);
-      projectComponent.id = project.id;
+      projectComponent.projectId = project.id;
 
-      document.querySelector('#content').appendChild(projectComponent);
+      container.appendChild(projectComponent);
     }
   }
 
@@ -30,14 +33,11 @@ class Renderer {
     for (const todo of project.todos) {
       let todoComponent;
       if (!todo.done) {
-        console.log('undone todo');
         todoComponent = this.createPendingTodoComponent(todo);
-        console.log(todoComponent);
         todosContainer.appendChild(todoComponent);
       } else {
         todoComponent = this.createDoneTodoComponent(todo);
         doneTodosContainer.appendChild(todoComponent);
-        todoComponent.classList.add('done');
       }
     }
 
@@ -71,7 +71,7 @@ class Renderer {
     todoContainer.appendChild(todoDate);
     todoContainer.appendChild(todoDoneButton);
     todoContainer.appendChild(todoDeleteButton);
-    todoContainer.id = todo.id;
+    todoContainer.todoId = todo.id;
 
     eventListeners.setUpPendingTodo(todoContainer);
     return todoContainer;
@@ -79,7 +79,7 @@ class Renderer {
 
   createDoneTodoComponent(todo) {
     const todoContainer = document.createElement('div');
-    todoContainer.classList.add('todo');
+    todoContainer.classList.add('todo', 'done');
 
     const todoTitle = document.createElement('h3');
     todoTitle.textContent = todo.title;
@@ -99,7 +99,7 @@ class Renderer {
     todoContainer.appendChild(todoDate);
     todoContainer.appendChild(todoDoneButton);
     todoContainer.appendChild(todoDeleteButton);
-    todoContainer.id = todo.id;
+    todoContainer.todoId = todo.id;
 
     eventListeners.setUpDoneTodo(todoContainer);
     return todoContainer;

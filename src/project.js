@@ -15,9 +15,9 @@ class Project {
     this.todos.push(todo);
   }
 
-  removeTodo(id) {
+  deleteTodo(id) {
     const todo = this.todos.find((todo) => id === todo.id);
-    const index = this.todos.findIndex(todo);
+    const index = this.todos.findIndex((item) => item === todo);
     this.todos.splice(index, 1);
   }
 
