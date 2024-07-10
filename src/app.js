@@ -1,6 +1,5 @@
 import Project from './project';
 import Todo from './todo';
-import renderer from './renderer';
 
 class App {
   projects = [];
@@ -23,14 +22,9 @@ class App {
     const project = new Project(name);
     this.projects.push(project);
   }
-
-  render() {
-    renderer.renderProjects(this);
-  }
 }
 
 // if no state in local storage
 const app = new App();
-renderer.renderProjects(app);
 
 export default app;
