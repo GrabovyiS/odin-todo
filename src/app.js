@@ -26,6 +26,11 @@ class App {
     project.createTodo(placeholderTodo);
     this.projects.push(project);
   }
+
+  deleteProject(projectId) {
+    const index = this.projects.findIndex((item) => item.id === projectId);
+    this.projects.splice(index, 1);
+  }
 }
 
 // if no state in local storage

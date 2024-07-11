@@ -1,6 +1,8 @@
 import PendingTodoComponent from './pendingTodoComponent';
 import DoneTodoComponent from './DoneTodoComponent';
 import DialogCreateTodoComponent from './dialogs/DialogCreateTodoComponent';
+import app from '../app';
+import renderer from '../renderer';
 
 class ProjectComponent {
   constructor(project) {
@@ -12,11 +14,16 @@ class ProjectComponent {
     const projectName = document.createElement('h2');
     projectName.textContent = project.name;
 
+    const projectDeleteButton = document.createElement('button');
+    projectDeleteButton.classList.add('delete-button', 'delete-project-button');
+    projectDeleteButton.textContent = 'Delete Project';
+
     const todoCreateButton = document.createElement('button');
     todoCreateButton.classList.add('create-button');
     todoCreateButton.textContent = 'New Todo';
 
     projectHeader.appendChild(projectName);
+    projectHeader.appendChild(projectDeleteButton);
     projectHeader.appendChild(todoCreateButton);
 
     const todosContainer = document.createElement('div');
@@ -58,6 +65,16 @@ class ProjectComponent {
       const projectId = e.target.closest('.project').projectId;
       const dialog = new DialogCreateTodoComponent(projectId);
       dialog.showModal();
+    });
+
+    const projectDeleteButton = projectContainer.querySelector(
+      '.delete-project-button'
+    );
+
+    projectDeleteButton.addEventListener('click', (e) => {
+      const projectId = e.target.closest('.project').projectId;
+      app.deleteProject(projectId);
+      renderer.renderProjects();
     });
   }
 }

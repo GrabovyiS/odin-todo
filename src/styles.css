@@ -82,9 +82,6 @@ dialog {
     width: 64px;
   }
 
-  .dialog-done-button {
-  }
-
   header {
     display: flex;
     /* justify-content: space-between; */
@@ -133,7 +130,11 @@ dialog {
   header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+
+    .delete-project-button {
+      margin-left: auto;
+      margin-right: 16px;
+    }
   }
   h2 {
     /* margin-bottom: 24px;/ */
