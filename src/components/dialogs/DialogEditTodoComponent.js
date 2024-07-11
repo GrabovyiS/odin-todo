@@ -1,8 +1,9 @@
 import DialogTodoComponent from './DialogTodoComponent';
 import renderer from '../../renderer';
+import app from '../../app';
 
 class DialogEditTodoComponent extends DialogTodoComponent {
-  constructor(todo) {
+  constructor(todo, projectId) {
     super();
     super.changeTitle(todo.title);
 
@@ -22,12 +23,15 @@ class DialogEditTodoComponent extends DialogTodoComponent {
     this.appendChild(doneButton);
 
     doneButton.addEventListener('click', () => {
+      const project = app.projects.find((item) => item.id === projectId);
+
       const newTodoTitle = titleInput.value;
       const newTodoDueDate = dueDateInput.value;
       const newTodoPriority = priorityInput.value;
       const newTodoDescription = descriptionInput.value;
 
-      todo.edit(
+      project.editTodo(
+        todo.id,
         newTodoTitle,
         newTodoDescription,
         newTodoDueDate,

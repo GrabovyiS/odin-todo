@@ -45,7 +45,7 @@ class PendingTodoComponent {
       const todoId = e.target.closest('.todo').todoId;
       const todo = project.todos.find((todo) => todo.id === todoId);
 
-      const dialogEdit = new DialogEditTodoComponent(todo);
+      const dialogEdit = new DialogEditTodoComponent(todo, projectId);
       dialogEdit.showModal();
     });
 
