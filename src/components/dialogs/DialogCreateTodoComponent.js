@@ -1,7 +1,7 @@
 import DialogTodoComponent from './DialogTodoComponent';
 import renderer from '../../renderer';
 import app from '../../app';
-import Todo from '../../todo';
+import Todo from '../../data/todo';
 
 class DialogCreateTodoComponent extends DialogTodoComponent {
   constructor(projectId) {

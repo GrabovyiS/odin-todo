@@ -82,6 +82,9 @@ dialog {
     width: 64px;
   }
 
+  .dialog-done-button {
+  }
+
   header {
     display: flex;
     /* justify-content: space-between; */
@@ -116,6 +119,9 @@ dialog {
 
 #content {
   margin: 24px 22%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .project {
@@ -183,4 +189,16 @@ label {
 #done-dialog-button {
   display: block;
   margin: 0 auto;
+}
+
+.create-projects-container {
+  display: flex;
+  margin: 24px 22%;
+  align-items: stretch;
+  gap: 24px;
+
+  input {
+    border: var(--border);
+    font-size: 28px;
+  }
 }
