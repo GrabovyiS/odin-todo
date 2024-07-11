@@ -11,7 +11,7 @@ class Project {
     this.name = newName;
   }
 
-  addTodo(todo) {
+  createTodo(todo) {
     this.todos.push(todo);
   }
 

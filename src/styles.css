@@ -9,7 +9,9 @@
   --border: 7px solid black;
 }
 
-input {
+input,
+textarea,
+select {
   display: block;
   width: 100%;
   border: 4px solid black;
@@ -19,6 +21,28 @@ input {
     border: 5px solid black;
     padding: 9px;
   }
+}
+
+select {
+  appearance: none;
+  cursor: pointer;
+}
+
+textarea {
+  resize: none;
+  line-height: 160%;
+}
+
+.select-container {
+  position: relative;
+}
+
+.select-arrow {
+  position: absolute;
+  top: 39px;
+  right: 18px;
+  cursor: pointer;
+  pointer-events: none;
 }
 
 button {
@@ -41,9 +65,10 @@ dialog {
   position: fixed;
   top: 10%;
   left: 50%;
+  padding: 24px;
   transform: translateX(-50%);
   max-height: 80vh;
-  width: max(340px, 60vw);
+  width: max(340px, 30vw);
   border: var(--border);
   overflow-y: auto;
 
@@ -82,6 +107,13 @@ dialog {
   color: green;
 }
 
+.dialog-create-button {
+  border-color: green;
+  color: green;
+  display: block;
+  margin: 0 auto;
+}
+
 #content {
   margin: 24px 22%;
 }
@@ -91,8 +123,14 @@ dialog {
   border: var(--border);
   display: flex;
   flex-direction: column;
+  gap: 24px;
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   h2 {
-    margin-bottom: 24px;
+    /* margin-bottom: 24px;/ */
   }
 }
 
@@ -109,7 +147,7 @@ dialog {
   align-items: center;
   border: var(--border);
   padding: 8px;
-  .done-button {
+  p {
     margin-left: auto;
   }
   h3 {
@@ -118,9 +156,30 @@ dialog {
 }
 
 .completed-heading {
-  margin-top: 24px;
 }
 
 .todo.done {
-  border-color: grey;
+  /* border-color: grey; */
+}
+
+label {
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+}
+
+.inputs label {
+  margin-bottom: 4px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+#done-dialog-button {
+  display: block;
+  margin: 0 auto;
 }

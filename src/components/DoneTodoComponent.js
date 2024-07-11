@@ -30,10 +30,10 @@ class DoneTodoComponent {
     return todoContainer;
   }
 
-  setUpEventListeners(todoComponent) {
-    todoComponent.addEventListener('click', () => {});
+  setUpEventListeners(todoContainer) {
+    todoContainer.addEventListener('click', () => {});
 
-    const undoButton = todoComponent.querySelector('.done-button');
+    const undoButton = todoContainer.querySelector('.done-button');
     undoButton.addEventListener('click', (e) => {
       const undoButton = e.target;
 
@@ -46,7 +46,7 @@ class DoneTodoComponent {
       renderer.renderProjects(app);
     });
 
-    const deleteButton = todoComponent.querySelector('.delete-button');
+    const deleteButton = todoContainer.querySelector('.delete-button');
     deleteButton.addEventListener('click', (e) => {
       const deleteButton = e.target;
 

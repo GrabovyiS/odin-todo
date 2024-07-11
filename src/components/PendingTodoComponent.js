@@ -30,10 +30,10 @@ class PendingTodoComponent {
     return todoContainer;
   }
 
-  setUpEventListeners(todoComponent) {
-    todoComponent.addEventListener('click', () => {});
+  setUpEventListeners(todoContainer) {
+    todoContainer.addEventListener('click', () => {});
 
-    const doneButton = todoComponent.querySelector('.done-button');
+    const doneButton = todoContainer.querySelector('.done-button');
     doneButton.addEventListener('click', (e) => {
       const doneButton = e.target;
 
@@ -46,7 +46,7 @@ class PendingTodoComponent {
       renderer.renderProjects();
     });
 
-    const deleteButton = todoComponent.querySelector('.delete-button');
+    const deleteButton = todoContainer.querySelector('.delete-button');
     deleteButton.addEventListener('click', (e) => {
       const deleteButton = e.target;
 

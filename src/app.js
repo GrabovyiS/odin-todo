@@ -6,14 +6,14 @@ class App {
 
   constructor() {
     this.addProject('Default project');
-    this.projects[0].addTodo(
-      new Todo('default title', 'default desc', '11.11.11', 1)
+    this.projects[0].createTodo(
+      new Todo('default title', 'default desc', '11-11-11', 1)
     );
-    this.projects[0].addTodo(
-      new Todo('default 2', 'default desc 2', '22.11.22', 2)
+    this.projects[0].createTodo(
+      new Todo('default 2', 'default desc 2', '22-11-22', 2)
     );
-    this.projects[0].addTodo(
-      new Todo('default 3', 'default desc 2', '22.11.22', 2)
+    this.projects[0].createTodo(
+      new Todo('default 3', 'default desc 2', '22-11-22', 2)
     );
     this.projects[0].todos[2].done = true;
   }
