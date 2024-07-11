@@ -58,7 +58,7 @@ class DoneTodoComponent {
       const todoId = undoButton.closest('.todo').todoId;
       const todo = project.todos.find((todo) => todo.id === todoId);
 
-      todo.done = false;
+      todo.undo();
       renderer.renderProjects(app);
     });
 

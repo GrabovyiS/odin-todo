@@ -56,7 +56,7 @@ class PendingTodoComponent {
       const todoId = doneButton.closest('.todo').todoId;
       const todo = project.todos.find((todo) => todo.id === todoId);
 
-      todo.done = true;
+      todo.do();
       renderer.renderProjects();
     });
 

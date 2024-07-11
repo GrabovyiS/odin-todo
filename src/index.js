@@ -7,7 +7,7 @@ const createProjectInput = document.querySelector('#create-project-input');
 const createProjectButton = document.querySelector('#create-project-button');
 
 createProjectButton.addEventListener('click', () => {
-  app.addProject(createProjectInput.value);
+  app.createProject(createProjectInput.value);
   renderer.renderProjects();
 });
 
