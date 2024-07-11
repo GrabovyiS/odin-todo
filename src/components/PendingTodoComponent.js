@@ -2,6 +2,8 @@ import renderer from '../renderer';
 import app from '../app';
 import DialogEditTodoComponent from './dialogs/DialogEditTodoComponent';
 
+import priorityOptions from '../helpers/selectPriorityOptions';
+
 class PendingTodoComponent {
   constructor(todo) {
     const todoContainer = document.createElement('div');
@@ -12,6 +14,10 @@ class PendingTodoComponent {
 
     const todoDate = document.createElement('p');
     todoDate.textContent = todo.dueDate;
+    const priorityColor = priorityOptions.find(
+      (option) => option.value === todo.priority
+    ).color;
+    todoDate.style.color = priorityColor;
 
     const todoDoneButton = document.createElement('button');
     todoDoneButton.classList.add('done-button');

@@ -1,5 +1,5 @@
 import decodeHtmlCharCodes from '../../helpers/decode';
-import priorityOptions from '../inputs/SelectPriorityOptions';
+import priorityOptions from '../../helpers/selectPriorityOptions';
 
 import InputComponent from '../inputs/InputComponent';
 import DateInputComponent from '../inputs/DateInputComponent';

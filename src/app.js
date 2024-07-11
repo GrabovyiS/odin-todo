@@ -10,7 +10,7 @@ class App {
       new Todo('default title', 'default desc', '1111-11-11', 'medium')
     );
     this.projects[0].createTodo(
-      new Todo('default 3', 'default desc 2', '2222-11-22', 'light')
+      new Todo('default 3', 'default desc 2', '2222-11-22', 'important')
     );
     this.projects[0].todos[2].done = true;
   }
