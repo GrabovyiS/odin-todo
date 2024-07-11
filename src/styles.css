@@ -201,5 +201,9 @@ label {
   input {
     border: var(--border);
     font-size: 28px;
+    &:focus {
+      border: var(--border);
+      padding: 10px;
+    }
   }
 }
