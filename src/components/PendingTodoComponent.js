@@ -1,5 +1,6 @@
 import renderer from '../renderer';
 import app from '../app';
+import DialogEditTodoComponent from './dialogs/DialogEditTodoComponent';
 
 class PendingTodoComponent {
   constructor(todo) {
@@ -31,12 +32,19 @@ class PendingTodoComponent {
   }
 
   setUpEventListeners(todoContainer) {
-    todoContainer.addEventListener('click', () => {});
+    const todoTitle = todoContainer.querySelector('h3');
+    todoTitle.addEventListener('click', (e) => {
+      const projectId = e.target.closest('.project').projectId;
+      const project = app.projects.find((project) => project.id === projectId);
+      const todoId = e.target.closest('.todo').todoId;
+      const todo = project.todos.find((todo) => todo.id === todoId);
+
+      const dialogEdit = new DialogEditTodoComponent(todo);
+      dialogEdit.showModal();
+    });
 
     const doneButton = todoContainer.querySelector('.done-button');
-    doneButton.addEventListener('click', (e) => {
-      const doneButton = e.target;
-
+    doneButton.addEventListener('click', () => {
       const projectId = doneButton.closest('.project').projectId;
       const project = app.projects.find((project) => project.id === projectId);
       const todoId = doneButton.closest('.todo').todoId;

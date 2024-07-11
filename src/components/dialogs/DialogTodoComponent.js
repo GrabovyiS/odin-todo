@@ -48,10 +48,6 @@ class DialogTodoComponent {
     return dialogContainer;
   }
 
-  show() {
-    this.showModal();
-  }
-
   changeTitle(title) {
     this.querySelector('h2').textContent = title;
   }

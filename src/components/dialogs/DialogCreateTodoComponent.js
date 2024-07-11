@@ -6,7 +6,6 @@ import Todo from '../../todo';
 class DialogCreateTodoComponent extends DialogTodoComponent {
   constructor(projectId) {
     super();
-    console.log(Object.getPrototypeOf(this));
     super.changeTitle('New Todo');
 
     const createButton = document.createElement('button');
